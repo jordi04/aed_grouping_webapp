@@ -6,6 +6,8 @@ import time
 # Configuració de la pàgina
 st.set_page_config(page_title="Dynamic Grouping", layout="wide")
 
+st.title("Agrupem els participants")
+
 # Estils CSS per a personalitzar els blocs
 def add_custom_styles():
     st.markdown(
