@@ -1,5 +1,5 @@
 # Ignore Firebase credentials file
-#firebaseCred.json
+firebaseCred.json
 
 # Ignore system files
 .DS_Store
