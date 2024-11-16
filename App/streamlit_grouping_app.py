@@ -17,15 +17,27 @@ def add_custom_styles():
             font-family: 'Arial', sans-serif;
         }
 
-        /* Contenidor del logo */
-        .logo-container {
+        /* Contenidor dels logos */
+        .logos-container {
             position: fixed;
-            top: 60px;
-            left: 30px;
+            top: 50px; /* Ajustem la distància des de la part superior */
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
         }
-        .logo-container img {
-            height: 80px; /* Ajustem la mida del logo */
+        .logos-container img {
+            height: 80px;
+        }
+        .logos-container.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
 
         /* Títol principal */
@@ -34,7 +46,7 @@ def add_custom_styles():
             font-size: 3em;
             font-weight: bold;
             color: #2e2e2e;
-            margin-top: 50px; /* Afegim més espai respecte al logo */
+            margin-top: 150px; /* Afegim espai respecte als logos */
             margin-bottom: 10px;
         }
 
@@ -124,6 +136,17 @@ def add_custom_styles():
         }
 
         </style>
+
+        <script>
+        document.addEventListener("scroll", function() {
+            const logosContainer = document.querySelector(".logos-container");
+            if (window.scrollY > 50) {
+                logosContainer.classList.add("hidden");
+            } else {
+                logosContainer.classList.remove("hidden");
+            }
+        });
+        </script>
         """,
         unsafe_allow_html=True,
     )
@@ -131,11 +154,12 @@ def add_custom_styles():
 # Afegir estils personalitzats
 add_custom_styles()
 
-# Mostrar logo a la part superior esquerra
+# Mostrar logos a la part superior
 st.markdown(
     """
-    <div class="logo-container">
-        <img src="https://www.datathon.cat/_app/immutable/assets/accentLogo.ICfS56oN.png" alt="Logo">
+    <div class="logos-container">
+        <img src="https://www.datathon.cat/_app/immutable/assets/accentLogo.ICfS56oN.png" alt="Logo esquerra">
+        <img src="https://github.com/data-students/AEDChallenge/raw/main/public/aed_logo.png" alt="Logo dreta">
     </div>
     """,
     unsafe_allow_html=True,
@@ -156,11 +180,6 @@ def mostra_grups(data):
     for group_id, group in grouped:
         st.markdown(f"<div class='group-header'>Grup {group_id}</div>", unsafe_allow_html=True)
 
-        # Mostrar característiques comunes
-        common_features = group["group_common_features"].iloc[0]
-        st.markdown(f"Característiques comunes: {common_features}", unsafe_allow_html=True)
-
-
         # Crear una fila amb columnes adaptatives per als participants
         cols = st.columns(len(group))
         for i, (_, row) in enumerate(group.iterrows()):
@@ -174,6 +193,10 @@ def mostra_grups(data):
                     """,
                     unsafe_allow_html=True,
                 )
+        
+        # Mostrar característiques comunes
+        common_features = group["group_common_features"].iloc[0]
+        st.markdown(f"<strong>Característiques comunes:</strong> {common_features}", unsafe_allow_html=True)
 
 # Botó per executar l'script extern
 if st.button("Generar Grups"):
@@ -188,9 +211,7 @@ if st.button("Generar Grups"):
 
     # Comprovar si l'execució ha estat exitosa
     if result.returncode == 0:
-        st.success("Script executat correctament! Llegint el CSV generat...")
-
-        # Carregar el CSV generat
+        # Eliminat el missatge de confirmació
         try:
             output_csv_path = "output_groups.csv"  # Fitxer generat pel teu script
             data = pd.read_csv(output_csv_path)

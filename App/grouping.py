@@ -218,7 +218,7 @@ languages = ['Catalan', 'English', 'French', 'German', 'Italian', 'Portuguese', 
 # Funció per calcular característiques comunes d'un grup (només positives)
 def calculate_common_features(group_members, df):
     common_features = []
-    for column in languages + programming_languages + relaxed_columns:
+    for column in languages + programming_languages + relaxed_columns + medium_columns + strict_columns:
         if column in df.columns:
             values = df.loc[group_members, column]
             if all(values > 0):  # Comprovar si tots els valors són > 0
