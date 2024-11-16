@@ -213,15 +213,23 @@ programming_languages = [
     'TensorFlow', 'PyTorch', 'Docker', 'AWS/Azure/GCP', 'Java', 'Go', 'Rust', 'Figma', 'Flask', 'React Native', 'PostgreSQL', 'Android Development', 'iOS Development', 'UI/UX', 'Git'
 ]
 
+languages = ['Catalan', 'English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish']
+
 # Funció per calcular característiques comunes d'un grup (només positives)
 def calculate_common_features(group_members, df):
     common_features = []
-    for column in programming_languages + strict_columns + medium_columns + relaxed_columns:
+    for column in languages + programming_languages + relaxed_columns:
         if column in df.columns:
             values = df.loc[group_members, column]
             if all(values > 0):  # Comprovar si tots els valors són > 0
                 common_features.append(column)
     return "; ".join(common_features)
+
+def calculate_common_languages(group_members, df):
+    for language in languages:
+        if all(df.loc[group_members, language] > 0):
+            return language
+    return "None"
 
 # Funció per calcular la puntuació parell a parell
 def calculate_pair_score(participant, member, columns):

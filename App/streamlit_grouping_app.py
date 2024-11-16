@@ -6,40 +6,47 @@ import time
 # Configuració de la pàgina
 st.set_page_config(page_title="Dynamic Grouping", layout="wide")
 
-st.title("Agrupem els participants")
-
-# Estils CSS per a personalitzar els blocs i el botó
+# Estils CSS personalitzats per adaptar l'estil de la pàgina
 def add_custom_styles():
     st.markdown(
         """
         <style>
-        /* Estil per als blocs de participants */
-        .participant-box {
-            border: 2px solid #7ca5a8;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        /* Fons general */
+        .stApp {
+            background-color: #ffffff;
+            font-family: 'Arial', sans-serif;
         }
-        .participant-box h4 {
-            color: #22222a;
-            margin-bottom: 5px;
+
+        /* Contenidor del logo */
+        .logo-container {
+            position: fixed;
+            top: 60px;
+            left: 30px;
+            z-index: 1000;
         }
-        .participant-box p {
-            margin: 0;
-            font-size: 14px;
-            color: #666;
+        .logo-container img {
+            height: 80px; /* Ajustem la mida del logo */
         }
-        .group-header {
-            color: #ffffff;
-            background-color: #3c948c;
-            padding: 10px;
-            border-radius: 5px;
+
+        /* Títol principal */
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #2e2e2e;
+            margin-top: 50px; /* Afegim més espai respecte al logo */
             margin-bottom: 10px;
         }
 
-        /* Estil per al botó */
+        /* Subtítol */
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #8c8c8c;
+            margin-bottom: 30px;
+        }
+
+        /* Botó personalitzat */
         div.stButton > button {
             display: block;
             margin: 20px auto; /* Centra el botó */
@@ -55,12 +62,67 @@ def add_custom_styles():
             transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
         }
 
-        /* Canvi de color en passar el cursor */
         div.stButton > button:hover {
             background-color: #2f7a6e; /* Verd més fosc */
+            transform: scale(1.05); /* Augment de mida */
             color: white; /* Manté el text blanc */
-            transform: scale(1.05); /* Lleuger augment de mida */
         }
+
+        /* Spinner verd i centrat */
+        .custom-spinner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .custom-spinner-text {
+            color: #3c948c; /* Text verd */
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Blocs de grups */
+        .group-header {
+            color: #ffffff;
+            background-color: #3c948c;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .participant-box {
+            border: 2px solid #7ca5a8;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .participant-box h4 {
+            color: #22222a;
+            margin-bottom: 5px;
+        }
+
+        .participant-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 1em;
+            color: #8c8c8c;
+            margin-top: 30px;
+        }
+
         </style>
         """,
         unsafe_allow_html=True,
@@ -69,21 +131,36 @@ def add_custom_styles():
 # Afegir estils personalitzats
 add_custom_styles()
 
+# Mostrar logo a la part superior esquerra
+st.markdown(
+    """
+    <div class="logo-container">
+        <img src="https://www.datathon.cat/_app/immutable/assets/accentLogo.ICfS56oN.png" alt="Logo">
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Títol centrat
+st.markdown("<h1 class='main-title'>Agrupem els participants</h1>", unsafe_allow_html=True)
+
+# Subtítol centrat
+st.markdown("<p class='subtitle'>Generem els grups de manera automàtica</p>", unsafe_allow_html=True)
+
 # Funció per mostrar els grups amb estils
 def mostra_grups(data):
-    st.write("### Groups Overview")
-
-    # Agrupar les dades pel group_id
+    st.write("### Grups Generats")
     grouped = data.groupby("group_id")
 
     # Mostrar els grups
     for group_id, group in grouped:
-        st.markdown(f"<div class='group-header'>Group {group_id}</div>", unsafe_allow_html=True)
-        
+        st.markdown(f"<div class='group-header'>Grup {group_id}</div>", unsafe_allow_html=True)
+
         # Mostrar característiques comunes
         common_features = group["group_common_features"].iloc[0]
-        st.write(f"**Common Features:** {common_features}")
-        
+        st.markdown(f"Característiques comunes: {common_features}", unsafe_allow_html=True)
+
+
         # Crear una fila amb columnes adaptatives per als participants
         cols = st.columns(len(group))
         for i, (_, row) in enumerate(group.iterrows()):
@@ -99,35 +176,32 @@ def mostra_grups(data):
                 )
 
 # Botó per executar l'script extern
-if st.button("Generate Groups"):
-    # Mostrem una barra de progrés
-    with st.spinner("Executing grouping script..."):
+if st.button("Generar Grups"):
+    # Mostrem un spinner verd centrat
+    with st.spinner("Generant els grups..."):
         # Executar l'script Python extern
         script_path = 'grouping.py'  # Ruta al fitxer grouping.py
-
-        # Ajust segons el sistema operatiu (python o python3)
         try:
             result = subprocess.run(["python3", script_path], capture_output=True, text=True)
         except FileNotFoundError:
             result = subprocess.run(["python", script_path], capture_output=True, text=True)
 
-        time.sleep(2)  # Simulem un temps d'espera per mostrar la càrrega
-    
     # Comprovar si l'execució ha estat exitosa
     if result.returncode == 0:
-        st.success("Script executed successfully! Reading the generated CSV...")
-        
+        st.success("Script executat correctament! Llegint el CSV generat...")
+
         # Carregar el CSV generat
         try:
             output_csv_path = "output_groups.csv"  # Fitxer generat pel teu script
             data = pd.read_csv(output_csv_path)
-            
+
             # Mostrar els grups de forma visual
             mostra_grups(data)
         except FileNotFoundError:
-            st.error("The generated CSV file was not found. Ensure 'grouping.py' creates 'output_groups.csv'.")
+            st.error("El fitxer CSV no s'ha trobat. Assegura't que 'grouping.py' crea 'output_groups.csv'.")
     else:
-        st.error("Error executing the grouping script.")
+        st.error("Error en executar l'script.")
         st.text(result.stderr)
 else:
-    st.write("Press the button above to generate groups using the external script.")
+    # Text explicatiu centrat a la part inferior
+    st.markdown("<p class='footer-text'>Prem el botó superior per generar els grups automàticament.</p>", unsafe_allow_html=True)
