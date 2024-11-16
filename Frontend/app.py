@@ -5,8 +5,6 @@ import uuid
 import streamlit as st
 
 
-# Mostra una imatge des d'una URL
-st.image("datathon.png")
 # Ruta al itxer JSON
 JSON_FILE_PATH = "datathon_participants.json"
 
