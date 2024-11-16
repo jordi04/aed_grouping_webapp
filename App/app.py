@@ -14,6 +14,18 @@ db = firestore.client()
 # Reference to the collection of participants
 participants_ref = db.collection("participants")
 
+# Predefined list of programming skills
+available_skills = [
+    "Python", "C++", "JavaScript", "SQL", "TensorFlow", 
+    "PyTorch", "Docker", "HTML/CSS", "Data Analysis", 
+    "Natural Language Processing", "Java", "Go", 
+    "Rust", "Figma", "Flask", "React", "React Native", 
+    "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning", 
+    "DevOps", "Android Development", "iOS Development", 
+    "UI/UX Design", "Git", "Blockchain", "Computer Vision", 
+    "Data Visualization"
+]
+
 # Streamlit form to add participants
 st.title("Formulari de Participants - Datathon FME 2024")
 st.logo("https://www.datathon.cat/_app/immutable/assets/accentLogo.ICfS56oN.png")
@@ -36,21 +48,11 @@ with st.form(key="participant_form"):
         ["None", "Vegetarian", "Vegan", "Gluten-free", "Other"]
     )
     
-    st.write("### Habilitats de programació:")
-    programming_skills = {
-        skill: st.slider(skill, 0, 10, 0) for skill in [
-            "Python", "C++", "JavaScript", "SQL", "TensorFlow", 
-            "PyTorch", "Docker", "HTML/CSS", "Data Analysis", 
-            "Natural Language Processing", "Java", "Go", 
-            "Rust", "Figma", "Flask", "React", "React Native", 
-            "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning", 
-            "DevOps", "Android Development", "iOS Development", 
-            "UI/UX Design", "Git", "Blockchain", "Computer Vision", 
-            "Data Visualization"
-        ]
-    }
-
-
+    selected_skills = st.multiselect(
+        "Escriu o selecciona habilitats des de la llista:",
+        options=available_skills
+    )
+    #afegir slider per a cada skill
     experience_level = st.selectbox(
         "Nivell d'experiència:",
         ["Beginner", "Intermediate", "Advanced"]
@@ -116,7 +118,7 @@ with st.form(key="participant_form"):
 
 
     
-
+    
     # Submit button
     submit_button = st.form_submit_button(label="Enviar")
 

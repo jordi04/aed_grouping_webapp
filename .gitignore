@@ -1,12 +1,12 @@
 # Ignore Firebase credentials file
-firebaseCred.json
+#firebaseCred.json
 
 # Ignore system files
 .DS_Store
 
 # Ignore Python bytecode
 **/__pycache__/
-
+datathon24/
 # Ignore virtual environments
 venv/
 env/

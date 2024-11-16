@@ -2,19 +2,7 @@ import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-st.write("### Habilitats de programació:")
-    programming_skills = {
-        skill: st.slider(skill, 0, 10, 0) for skill in [
-            "Python", "C++", "JavaScript", "SQL", "TensorFlow", 
-            "PyTorch", "Docker", "HTML/CSS", "Data Analysis", 
-            "Natural Language Processing", "Java", "Go", 
-            "Rust", "Figma", "Flask", "React", "React Native", 
-            "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning", 
-            "DevOps", "Android Development", "iOS Development", 
-            "UI/UX Design", "Git", "Blockchain", "Computer Vision", 
-            "Data Visualization"
-        ]
-    }
+
 # Initialize Firebase
 cred = credentials.Certificate("firebaseCred.json")
 firebase_admin.initialize_app(cred)
