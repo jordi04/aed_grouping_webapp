@@ -1,29 +1,24 @@
 import streamlit as st
-import json
-import os
-import uuid
-import streamlit as st
+import firebase_admin
+from streamlit_tags import st_tags
+from firebase_admin import credentials, firestore
 
+# Initialize Firebase only if it hasn't been initialized already
+if not firebase_admin._apps:  # Check if any Firebase app is initialized
+    cred = credentials.Certificate("firebaseCred.json")
+    firebase_admin.initialize_app(cred)
 
-# Ruta al itxer JSON
-JSON_FILE_PATH = "datathon_participants.json"
+# Initialize Firestore client
+db = firestore.client()
 
-# Carregar dades existents o crear una llista buida
-if os.path.exists(JSON_FILE_PATH):
-    with open(JSON_FILE_PATH, "r") as file:
-        participants = json.load(file)
-else:
-    participants = []
+# Reference to the collection of participants
+participants_ref = db.collection("participants")
 
-# Títol de l'aplicació
+# Streamlit form to add participants
 st.title("Formulari de Participants - Datathon FME 2024")
-
-# Descripció
-st.write("Emplena aquest formulari per registrar un participant al Datathon. Les dades s'afegiran automàticament al fitxer JSON.")
-
-# Formulari per recollir les dades
+st.logo("https://www.datathon.cat/_app/immutable/assets/accentLogo.ICfS56oN.png")
 with st.form(key="participant_form"):
-    # Camps bàsics
+    # Fields for participant data
     name = st.text_input("Nom del participant:")
     email = st.text_input("Email:")
     age = st.number_input("Edat:", min_value=10, max_value=100, step=1)
@@ -40,21 +35,22 @@ with st.form(key="participant_form"):
         "Restriccions alimentàries:", 
         ["None", "Vegetarian", "Vegan", "Gluten-free", "Other"]
     )
+    
+    st.write("### Habilitats de programació:")
+    programming_skills = {
+        skill: st.slider(skill, 0, 10, 0) for skill in [
+            "Python", "C++", "JavaScript", "SQL", "TensorFlow", 
+            "PyTorch", "Docker", "HTML/CSS", "Data Analysis", 
+            "Natural Language Processing", "Java", "Go", 
+            "Rust", "Figma", "Flask", "React", "React Native", 
+            "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning", 
+            "DevOps", "Android Development", "iOS Development", 
+            "UI/UX Design", "Git", "Blockchain", "Computer Vision", 
+            "Data Visualization"
+        ]
+    }
 
-    # Interessos
-    interests = st.multiselect(
-        "Selecciona els teus interessos:",
-        ["Machine Learning/AI", "Gaming", "E-commerce/Retail", "Productivity", "Web", 
-         "Music/Art", "Quantum", "Databases", "DevOps"]
-    )
 
-    # Rol preferit
-    preferred_role = st.selectbox(
-        "Rol preferit:", 
-        ["Analysis", "Visualization", "Development", "Design", "Don't know"]
-    )
-
-    # Experiència
     experience_level = st.selectbox(
         "Nivell d'experiència:",
         ["Beginner", "Intermediate", "Advanced"]
@@ -62,19 +58,23 @@ with st.form(key="participant_form"):
     hackathons_done = st.number_input(
         "Nombre de hackathons completats:", min_value=0, step=1
     )
-
-    # Objectius i introducció
+    interests = st.multiselect( #uhgsuygizgcs
+        "Selecciona els teus interessos:",
+        ["Machine Learning/AI", "Gaming", "E-commerce/Retail", "Productivity", "Web", 
+         "Music/Art", "Quantum", "Databases", "DevOps"] #afegir més interessos
+    )
+    preferred_role = st.selectbox(
+        "Rol preferit:", 
+        ["Analysis", "Visualization", "Development", "Design"]
+    )
+    
     objective = st.text_area("Objectiu principal:")
-    introduction = st.text_area("Introdueix-te breument:")
-
-    # Projectes tècnics
-    technical_project = st.text_area("Descriu un projecte tècnic que hagis realitzat:")
-
-    # Expectatives de futur
-    future_excitement = st.text_area("Quines són les teves expectatives pel futur?")
-
-    # Dada curiosa
-    fun_fact = st.text_input("Fes-nos saber una curiositat sobre tu:")
+    
+    #INTERESTS in challenges
+    interest_in_challenges = st.multiselect(
+        "Reptes d'interès:",
+        ["Mango Challenge", "Restb.ai Challenge", "AED Challenge"]
+    )
 
     # Idiomes preferits
     preferred_languages = st.multiselect(
@@ -103,34 +103,26 @@ with st.form(key="participant_form"):
         "Sunday afternoon": st.checkbox("Diumenge tarda"),
     }
 
-    # Habilitats tècniques
-    st.write("### Habilitats de programació:")
-    programming_skills = {
-        "Data Visualization": st.slider("Data Visualization", 1, 10, 5),
-        "Flask": st.slider("Flask", 1, 10, 5),
-        "React": st.slider("React", 1, 10, 5),
-        "MongoDB": st.slider("MongoDB", 1, 10, 5)
-    }
+    introduction = st.text_area("Introdueix-te breument:")
 
-    # Reptes d'interès
-    interest_in_challenges = st.multiselect(
-        "Reptes d'interès:",
-        ["Mango Challenge", "Restb.ai Challenge", "AED Challenge"]
-    )
+    # Projectes tècnics
+    technical_project = st.text_area("Descriu un projecte tècnic que hagis realitzat:")
+
+    # Expectatives de futur
+    future_excitement = st.text_area("Quines són les teves expectatives pel futur?")
+
+    # Dada curiosa
+    fun_fact = st.text_input("Fes-nos saber una curiositat sobre tu:")
 
 
     
 
-    # Botó d'enviament
+    # Submit button
     submit_button = st.form_submit_button(label="Enviar")
 
     if submit_button:
-        # Crear una ID única per al participant
-        participant_id = str(uuid.uuid4())
-
-        # Crear l'objecte del participant
+        # Create the new participant entry
         new_participant = {
-            "id": participant_id,
             "name": name,
             "email": email,
             "age": age,
@@ -149,18 +141,10 @@ with st.form(key="participant_form"):
             "fun_fact": fun_fact,
             "preferred_languages": preferred_languages,
             "friend_registration": friend_registration,
-            "preferred_team_size": preferred_team_size,
-            "availability": availability,
-            "programming_skills": programming_skills,
-            "interest_in_challenges": interest_in_challenges
+            "preferred_team_size": preferred_team_size
         }
 
-        # Afegir el nou participant al fitxer
-        participants.append(new_participant)
+        # Add new participant to Firestore
+        participants_ref.add(new_participant)
 
-        # Escriure al fitxer JSON
-        with open(JSON_FILE_PATH, "w") as file:
-            json.dump(participants, file, indent=4)
-
-        st.success("Participant afegit i dades desades correctament!")
-        st.json(new_participant)  # Mostrar dades afegides
+        st.success("Participant afegit correctament!")

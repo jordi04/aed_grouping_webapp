@@ -1,0 +1,16 @@
+# Ignore Firebase credentials file
+firebaseCred.json
+
+# Ignore system files
+.DS_Store
+
+# Ignore Python bytecode
+**/__pycache__/
+
+# Ignore virtual environments
+venv/
+env/
+
+# IDE configurations
+.vscode/
+.idea/
