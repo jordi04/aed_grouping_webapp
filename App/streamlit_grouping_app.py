@@ -8,11 +8,12 @@ st.set_page_config(page_title="Dynamic Grouping", layout="wide")
 
 st.title("Agrupem els participants")
 
-# Estils CSS per a personalitzar els blocs
+# Estils CSS per a personalitzar els blocs i el botó
 def add_custom_styles():
     st.markdown(
         """
         <style>
+        /* Estil per als blocs de participants */
         .participant-box {
             border: 2px solid #7ca5a8;
             border-radius: 10px;
@@ -35,11 +36,38 @@ def add_custom_styles():
             background-color: #3c948c;
             padding: 10px;
             border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Estil per al botó */
+        div.stButton > button {
+            display: block;
+            margin: 20px auto; /* Centra el botó */
+            background-color: #3c948c; /* Verd elegant */
+            color: white; /* Text blanc */
+            font-size: 18px; /* Mida del text */
+            font-weight: bold; /* Text en negreta */
+            border-radius: 12px; /* Vores arrodonides */
+            padding: 10px 20px; /* Espai intern */
+            border: none; /* Sense vora */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombra */
+            cursor: pointer; /* Cursor de mà */
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+        }
+
+        /* Canvi de color en passar el cursor */
+        div.stButton > button:hover {
+            background-color: #2f7a6e; /* Verd més fosc */
+            color: white; /* Manté el text blanc */
+            transform: scale(1.05); /* Lleuger augment de mida */
         }
         </style>
         """,
         unsafe_allow_html=True,
     )
+
+# Afegir estils personalitzats
+add_custom_styles()
 
 # Funció per mostrar els grups amb estils
 def mostra_grups(data):
@@ -94,13 +122,10 @@ if st.button("Generate Groups"):
             output_csv_path = "output_groups.csv"  # Fitxer generat pel teu script
             data = pd.read_csv(output_csv_path)
             
-            # Afegir estils personalitzats
-            add_custom_styles()
-
             # Mostrar els grups de forma visual
             mostra_grups(data)
         except FileNotFoundError:
-            st.error("The generated CSV file was not found. Ensure 'grouping.py' creates 'participants_final.csv'.")
+            st.error("The generated CSV file was not found. Ensure 'grouping.py' creates 'output_groups.csv'.")
     else:
         st.error("Error executing the grouping script.")
         st.text(result.stderr)
