@@ -1,7 +1,7 @@
 import streamlit as st
 import subprocess
 import pandas as pd
-import time
+
 
 # Configuració de la pàgina
 st.set_page_config(page_title="Dynamic Grouping", layout="wide")
