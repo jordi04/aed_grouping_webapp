@@ -226,3 +226,11 @@ if st.button("Generar Grups"):
 else:
     # Text explicatiu centrat a la part inferior
     st.markdown("<p class='footer-text'>Prem el botó superior per generar els grups automàticament.</p>", unsafe_allow_html=True)
+
+# Peu de pàgina amb text centrat
+st.markdown(
+    """
+    <p class='footer-text'>Desenvolupat per en Sergi Adrover, en Pol Mir, en Jaume Mora i en Jordi Roca - Datathon 2024</p>
+    """,
+    unsafe_allow_html=True,
+)
