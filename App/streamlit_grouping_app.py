@@ -1,7 +1,7 @@
 import streamlit as st
 import subprocess
 import pandas as pd
-
+import time
 
 # Configuració de la pàgina
 st.set_page_config(page_title="Dynamic Grouping", layout="wide")
@@ -57,6 +57,8 @@ def add_custom_styles():
             color: #8c8c8c;
             margin-bottom: 30px;
         }
+
+
 
         /* Botó personalitzat */
         div.stButton > button {
@@ -136,17 +138,6 @@ def add_custom_styles():
         }
 
         </style>
-
-        <script>
-        document.addEventListener("scroll", function() {
-            const logosContainer = document.querySelector(".logos-container");
-            if (window.scrollY > 50) {
-                logosContainer.classList.add("hidden");
-            } else {
-                logosContainer.classList.remove("hidden");
-            }
-        });
-        </script>
         """,
         unsafe_allow_html=True,
     )
@@ -171,16 +162,14 @@ st.markdown("<h1 class='main-title'>Agrupem els participants</h1>", unsafe_allow
 # Subtítol centrat
 st.markdown("<p class='subtitle'>Generem els grups de manera automàtica</p>", unsafe_allow_html=True)
 
+# Variable per saber si els grups s'han generat
+grups_generats = False
+
 # Funció per mostrar els grups amb estils
 def mostra_grups(data):
-    st.write("### Grups Generats")
     grouped = data.groupby("group_id")
-
-    # Mostrar els grups
     for group_id, group in grouped:
         st.markdown(f"<div class='group-header'>Grup {group_id}</div>", unsafe_allow_html=True)
-
-        # Crear una fila amb columnes adaptatives per als participants
         cols = st.columns(len(group))
         for i, (_, row) in enumerate(group.iterrows()):
             with cols[i]:
@@ -193,36 +182,27 @@ def mostra_grups(data):
                     """,
                     unsafe_allow_html=True,
                 )
-        
-        # Mostrar característiques comunes
-        common_features = group["group_common_features"].iloc[0]
-        st.markdown(f"<strong>Característiques comunes:</strong> {common_features}", unsafe_allow_html=True)
 
 # Botó per executar l'script extern
 if st.button("Generar Grups"):
-    # Mostrem un spinner verd centrat
     with st.spinner("Generant els grups..."):
-        # Executar l'script Python extern
-        script_path = 'grouping.py'  # Ruta al fitxer grouping.py
+        script_path = 'grouping.py'
         try:
             result = subprocess.run(["python3", script_path], capture_output=True, text=True)
         except FileNotFoundError:
             result = subprocess.run(["python", script_path], capture_output=True, text=True)
 
-    # Comprovar si l'execució ha estat exitosa
     if result.returncode == 0:
-        # Eliminat el missatge de confirmació
         try:
-            output_csv_path = "output_groups.csv"  # Fitxer generat pel teu script
+            output_csv_path = "output_groups.csv"
             data = pd.read_csv(output_csv_path)
-
-            # Mostrar els grups de forma visual
             mostra_grups(data)
+            grups_generats = True
         except FileNotFoundError:
             st.error("El fitxer CSV no s'ha trobat. Assegura't que 'grouping.py' crea 'output_groups.csv'.")
     else:
         st.error("Error en executar l'script.")
         st.text(result.stderr)
-else:
-    # Text explicatiu centrat a la part inferior
-    st.markdown("<p class='footer-text'>Prem el botó superior per generar els grups automàticament.</p>", unsafe_allow_html=True)
+
+st.markdown("<p class='footer-text'>Datathon 2024 - Sergi Adrover, Pol Mir, Jaume Mora i Jordi Roca</p>", unsafe_allow_html=True)
+
