@@ -7066,6 +7066,62 @@
         "introduction": "Hey there! I'm Alessia, a 21-year-old student looking to dive into the datathon experience. I'm all about vibing with like-minded folks and having an amazing time while gaining valuable experience. When I'm not hitting the books, you can find me tinkering with code or exploring new tech trends. I'm stoked to bring my enthusiasm and creativity to the table. For me, this datathon is all about learning from each other, making unforgettable memories, and getting those endorphins pumping! Let's make this a datathon to remember, amped up by the power of community and shared knowledge!"
     },
     {
+        "age": 18,
+        "technical_project": "daad",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "E-commerce/Retail",
+            "Productivity",
+            "Web",
+            "Music/Art",
+            "Quantum"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "adadad",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "Catalan",
+            "Spanish",
+            "French",
+            "German",
+            "Italian"
+        ],
+        "id": "051dec9a-2825-4576-b3b1-0edaac3b062c",
+        "fun_fact": "adad",
+        "university": "UPC",
+        "name": "Mireia",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": true,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": false
+        },
+        "preferred_role": "Design",
+        "friend_registration": [
+            "asffasasfasffsa"
+        ],
+        "email": "mireia@gmail.com",
+        "programming_skills": {
+            "Docker": 5,
+            "HTML/CSS": 5,
+            "Go": 5,
+            "PyTorch": 5,
+            "Natural Language Processing": 5,
+            "Data Analysis": 5,
+            "Java": 5
+        },
+        "hackathons_done": 1,
+        "objective": "Porororo",
+        "introduction": "dfafaf"
+    },
+    {
         "age": 22,
         "technical_project": "I've always been fascinated by the potential of Blockchain technology, so I decided to work on a side project using Solidity, the language used for smart contracts. I built a simple decentralized social media platform, inspired by GitHub's issue-tracking system. It allowed users to create and manage their own communities, and I even integrated a basic voting system. It was a challenging but rewarding experience, as I learned to work with the complexities of Blockchain and applied my knowledge of data structures and concurrency. Plus, it felt great to create something tangible and meaningful, even if it's just a hobby project!",
         "experience_level": "Intermediate",
@@ -10421,6 +10477,58 @@
         "hackathons_done": 1,
         "objective": "I'm all about having a blast at this datathon! My goal is to make some awesome new friends, learn some new tricks, and participate in as many events as possible. I'm not too worried about winning, but more about soaking up the energy and vibes of the datathon. I'd love to collaborate with fellow participants, try out new tools and skills, and maybe even discover some new passions! At the end of the day, I just want to leave feeling fulfilled, happy, and maybe even a little bit smarter. Sound good to me!",
         "introduction": "Hey there! I'm Alejandra, a curious and outgoing 19-year-old student. I'm all about making the most of every experience, and I'm super excited to be here at the datathon! I'm not the most seasoned developer, but I'm eager to learn and experiment with new tools and techniques. When I'm not coding, you can find me jamming to music, doodling art, or trying out lifehacks to make life easier. I'm all about collaboration and meeting new people, so let's get this datathon party started!"
+    },
+    {
+        "age": 18,
+        "technical_project": "dadad",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "Gaming",
+            "E-commerce/Retail",
+            "Productivity",
+            "Web"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "dadad",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "Catalan",
+            "Spanish",
+            "French",
+            "German"
+        ],
+        "id": "d0b9ccfa-1f37-4b67-92a9-144b55b20d0d",
+        "fun_fact": "dadad",
+        "university": "dddd",
+        "name": "Fast",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [
+            "sdds"
+        ],
+        "email": "afwa",
+        "programming_skills": {
+            "Docker": 5,
+            "Natural Language Processing": 5,
+            "HTML/CSS": 5,
+            "Data Analysis": 5,
+            "Java": 5
+        },
+        "hackathons_done": 0,
+        "objective": "fssffs",
+        "introduction": "dada"
     },
     {
         "age": 21,
