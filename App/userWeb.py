@@ -41,7 +41,7 @@ def add_custom_styles():
             font-size: 3em;
             font-weight: bold;
             color: #2e2e2e;
-            margin-top: 150px;
+            margin-top: 100px;
             margin-bottom: 10px;
         }
 

@@ -10196,6 +10196,55 @@
         "introduction": "Hey there, I'm Laurence Ellette. I'm a third-year student with a passion for using technology to drive positive change. Throughout my university journey, I've had a knack for figuring things out and exploring new ideas. My experience in hackathons has taught me the value of perseverance and the thrill of bringing projects to life. I'm pumped to be here, pushing myself to take on the toughest challenges and turn my ideas into realities. Bring it on, let's see what this datathon has in store!"
     },
     {
+        "age": 18,
+        "technical_project": "ggg",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "Machine Learning/AI",
+            "Gaming",
+            "E-commerce/Retail",
+            "Productivity"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "ggg",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "Catalan",
+            "Spanish",
+            "French",
+            "German"
+        ],
+        "id": "55ba03d6-5b8e-4016-9eb0-cda2f4f0e5d3",
+        "fun_fact": "gg",
+        "university": "hh",
+        "name": "mare",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": false,
+            "Saturday morning": true
+        },
+        "preferred_role": "Visualization",
+        "friend_registration": [],
+        "email": "aa",
+        "programming_skills": {
+            "Docker": 5,
+            "HTML/CSS": 5,
+            "PyTorch": 5,
+            "TensorFlow": 5
+        },
+        "hackathons_done": 3,
+        "objective": "hhh",
+        "introduction": "hh"
+    },
+    {
         "age": 19,
         "technical_project": "I absolutely loved working on a UI/UX design project for a virtual e-commerce store! It was for a fictional brand, and I got to experiment with different layout options and design elements to create a visually appealing and user-friendly interface. I was tasked with designing a product page, and it was amazing to see my design come to life in a high-fidelity prototype. It was so satisfying to receive feedback from friends and family who actually used the prototype and gave me practical suggestions on how to improve it. It was an awesome experience that showed me the impact design can have on people's experiences!",
         "experience_level": "Beginner",
@@ -15530,6 +15579,55 @@
         "hackathons_done": 3,
         "objective": "I'm super competitive and I'm here to win! My objective is to use my programming skills to craft the most innovative and useful data-driven solution. I want to dominate the leaderboard and be crowned the ultimate champion. I'm going to put in the long hours, dig deep into the data, and push myself to the limit to ensure I've submitted the best project possible. Bring it on, I'm ready for this! My goal is to win, period.",
         "introduction": "Hey, I'm Ava Emerson Wright, a 19-year-old student with a passion for building innovative solutions. I've always been fascinated by technology and its potential to drive positive change. With a background in programming and a keen interest in social good, I'm all about crafting practical applications that make a difference. When I'm not hitting the books, you can find me gaming, rock climbing, or experimenting with new coding languages. For this datathon, I'm putting my programming skills to the test, aiming to create a game-changing project that takes home the top prize!"
+    },
+    {
+        "age": 18,
+        "technical_project": "wrqwrqr",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "E-commerce/Retail",
+            "Productivity",
+            "Web",
+            "Music/Art"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "rwqrwqrw",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "English",
+            "Catalan",
+            "Spanish",
+            "French",
+            "German"
+        ],
+        "id": "3ec25c30-ff90-45f6-9efe-8c9ed3f38b45",
+        "fun_fact": "rwqrwqrw",
+        "university": "adad",
+        "name": "Mireia",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": true,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "asfafasf",
+        "programming_skills": {
+            "JavaScript": 5,
+            "C++": 5,
+            "Python": 7
+        },
+        "hackathons_done": 2,
+        "objective": "agagas",
+        "introduction": "qwrqw"
     },
     {
         "age": 21,
@@ -26924,6 +27022,50 @@
         "introduction": "Hey, I'm Maria Isabella Flores! A 21-year-old student with a passion for coding and innovation. I've participated in five hackathons, and I'm here to crush this datathon and claim the top spot! I've got a knack for creating user-centric designs and building intuitive interfaces. With my roots in android development, I've learned to think creatively and push boundaries. I'm excited to apply my skills to real-world challenges and test my problem-solving abilities under pressure. Get ready for some serious brainpower - I'm ready to put in the hard work to make my mark!"
     },
     {
+        "age": 18,
+        "technical_project": "sasa",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "Quantum",
+            "Databases"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "sas",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "English",
+            "Catalan",
+            "Spanish",
+            "French"
+        ],
+        "id": "c315020b-c6ad-48fb-b3f7-d533febd5867",
+        "fun_fact": "sasa",
+        "university": "asfasfs",
+        "name": "Tim",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "afasf",
+        "programming_skills": {
+            "HTML/CSS": 5
+        },
+        "hackathons_done": 1,
+        "objective": "adf",
+        "introduction": "sas"
+    },
+    {
         "age": 22,
         "technical_project": "I had a blast working on a school project where I built a smart garden using IoT and React Native. I set up a sensor to monitor soil moisture and created an app to receive notifications when it needed watering. I designed the UI/UX to be super user-friendly, and it was amazing to see my project come to life. What I loved most was experimenting with different sensors and coding in TypeScript to make it all work together. It was a great hands-on experience that combined my passions for programming, design, and environmental sustainability!",
         "experience_level": "Advanced",
@@ -30473,6 +30615,55 @@
         "introduction": "Hey there! I'm Zarina, a 19-year-old student on a mission to make it to the top. When I'm not hitting the books, you can find me trying to level up in my favorite games or exploring the world of e-commerce. Programming is my thing, and I've been honing my skills through hackathons and personal projects. My goal is to win this datathon and prove to myself that I've got what it takes to be a top player. I'm competitive, driven, and always up for a challenge. Get ready for a fierce competitor!"
     },
     {
+        "age": 22,
+        "technical_project": "asfasfasfasf",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "E-commerce/Retail",
+            "Productivity",
+            "Web",
+            "Music/Art"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "sfasfas",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "Catalan",
+            "Spanish",
+            "French",
+            "German"
+        ],
+        "id": "2fd135b1-246e-4474-8808-c9efd59444c9",
+        "fun_fact": "faasfasfasf",
+        "university": "sdgsd",
+        "name": "Roi",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": true
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "sdgsdggsd",
+        "programming_skills": {
+            "Docker": 5,
+            "HTML/CSS": 5,
+            "PyTorch": 5,
+            "Data Analysis": 5
+        },
+        "hackathons_done": 2,
+        "objective": "dgsdg",
+        "introduction": "agadgasf"
+    },
+    {
         "age": 18,
         "technical_project": "I loved working on a non-technical project last semester - a blog about sustainable living! As an advocate for social good, I was passionate about sharing my findings on eco-friendly products and habits. I built a simple website using HTML/CSS and added some personal touches like illustrations and images. It was incredible to see my blog grow and receive feedback from like-minded individuals. The project allowed me to connect with others who share similar interests and sparked a passion for me to continue creating content that inspires positive change. It was a rewarding experience to see my ideas come to life!",
         "experience_level": "Beginner",
@@ -32637,6 +32828,50 @@
         "hackathons_done": 3,
         "objective": "I'm coming to the datathon with an eager mindset, excited to push my boundaries and learn new tricks. My goal is to improve my coding skills, especially with the tech stacks that will be featured during the event. I want to soak up knowledge and expertise from the other participants, mentors, and judges. I'm willing to step out of my comfort zone, take calculated risks, and learn from my mistakes. By the end of the datathon, I hope to have gained a better understanding of what it takes to be a rockstar developer and walk away with new perspectives and fresh ideas.",
         "introduction": "Hey, I'm Alex! I'm a second-year student with a passion for learning and a desire to push my boundaries. I'm thrilled to be joining this datathon and soaking up knowledge from the experts. As an amateur coder, I'm excited to improve my skills and gain a deeper understanding of the tech stacks that fascinate me. My background in Android Development and Blockchain has piqued my interest in product development and innovation. I'm looking forward to collaborating with like-minded individuals and making new connections."
+    },
+    {
+        "age": 18,
+        "technical_project": "sasa",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "Quantum",
+            "Databases"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "sas",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "English",
+            "Catalan",
+            "Spanish",
+            "French"
+        ],
+        "id": "c315020b-c6ad-48fb-b3f7-d533febd5867",
+        "fun_fact": "sasa",
+        "university": "asfasfs",
+        "name": "Tim",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "afasf",
+        "programming_skills": {
+            "HTML/CSS": 5
+        },
+        "hackathons_done": 1,
+        "objective": "adf",
+        "introduction": "sas"
     },
     {
         "age": 21,
@@ -37138,6 +37373,55 @@
         "introduction": "Hey everyone! I'm Ana Sophia Rodriguez, a 19-year-old student looking to upgrade my coding game. As a beginner in programming, I'm all about learning new things and growing as a developer. I'm especially excited to dive into data analysis and machine learning - I think they have so much potential to make a positive impact on the world. My friends would describe me as creative, passionate, and always up for a challenge. Can't wait to meet my fellow data enthusiasts and see what the datathon brings!"
     },
     {
+        "age": 22,
+        "technical_project": "asfasfasfasf",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "E-commerce/Retail",
+            "Productivity",
+            "Web",
+            "Music/Art"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "sfasfas",
+        "interest_in_challenges": [
+            "Restb.ai Challenge",
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "Catalan",
+            "Spanish",
+            "French",
+            "German"
+        ],
+        "id": "2fd135b1-246e-4474-8808-c9efd59444c9",
+        "fun_fact": "faasfasfasf",
+        "university": "sdgsd",
+        "name": "Roi",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": true
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "sdgsdggsd",
+        "programming_skills": {
+            "Docker": 5,
+            "HTML/CSS": 5,
+            "PyTorch": 5,
+            "Data Analysis": 5
+        },
+        "hackathons_done": 2,
+        "objective": "dgsdg",
+        "introduction": "agadgasf"
+    },
+    {
         "age": 21,
         "technical_project": "I recently worked on a non-technical project that I really enjoyed - designing and building a custom gaming setup for a local LAN party event! I'm a huge gamer myself, so it was amazing to take my passion and skills (which are limited to building and modding PCs) and create something truly unique. It was a blast setting up an immersive experience with RGB lights, custom controllers, and a giant screen. Seeing people's reactions when they played with it was incredible! It was a blast, and I hope to do more projects like that in the future.",
         "experience_level": "Intermediate",
@@ -39104,6 +39388,46 @@
         "hackathons_done": 5,
         "objective": "Hey! So, my objective for this datathon is pretty straightforward: I want to improve my skills and learn new things. With 5 hackathons under my belt, I'm looking to take my programming skills to the next level and experiment with new technologies. I'm hoping to push myself out of my comfort zone and learn from others in the community. Specifically, I'm interested in exploring areas like machine learning and data visualization, so I'd love to attend talks and workshops related to those topics. Let's see how far we can take our skills this weekend!",
         "introduction": "Hey there! I'm Emily, a 20-year-old student with a passion for programming and a thirst for adventure. With three years of experience under my belt, I've gained a solid foundation in software development. I've always been fascinated by the world of tech and its endless possibilities. For this datathon, I'm eager to challenge myself and take my skills to new heights. I'm interested in machine learning and data visualization, and I'm looking forward to learning from others and sharing my own insights. Let's see where the weekend takes us!"
+    },
+    {
+        "age": 18,
+        "technical_project": "X",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "E-commerce/Retail"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "D",
+        "interest_in_challenges": [
+            "Restb.ai Challenge"
+        ],
+        "preferred_languages": [
+            "Spanish"
+        ],
+        "id": "f57ccf09-18c5-40b1-a884-fe009a08db3d",
+        "fun_fact": "D",
+        "university": "F",
+        "name": "Pepo",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": false,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": true
+        },
+        "preferred_role": "Development",
+        "friend_registration": [],
+        "email": "Ksnd",
+        "programming_skills": {
+            "JavaScript": 5,
+            "Python": 5
+        },
+        "hackathons_done": 1,
+        "objective": "Fd",
+        "introduction": "D"
     },
     {
         "age": 18,
@@ -48789,6 +49113,49 @@
         "hackathons_done": 2,
         "objective": "My objective for this datathon is simple: I'm here to win. As a competitive problem-solver, I thrive under pressure and am driven by the pursuit of excellence. I've got a solid foundation in programming from my studies, and two hackathons under my belt, so I'm eager to put my skills to the test. My goal is to outdo my fellow competitors, learn from them, and come out on top. I'm in it to win it, and I won't hold back.",
         "introduction": "Hi there! I'm Aur\u00e8lia Fleming, a fourth-year student with a passion for problem-solving. When I'm not busy hitting the books, I'm usually dabbling in design, coding, or dreaming up new ways to use technology for good. I thrive in competitive environments and love the rush of solving complex puzzles under pressure. With two hackathons under my belt, I'm no stranger to the thrill of innovation. My goal here is to outdo myself and come out on top. Let's get this datathon started and see who comes out on top!"
+    },
+    {
+        "age": 68,
+        "technical_project": "Fjdkd",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "Web"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "Jdjdj",
+        "interest_in_challenges": [
+            "Restb.ai Challenge"
+        ],
+        "preferred_languages": [
+            "French",
+            "German",
+            "Spanish",
+            "Catalan",
+            "English"
+        ],
+        "id": "9e378fa5-a3d0-4c4c-bdfd-6e37294ad3d0",
+        "fun_fact": "Kdjdd",
+        "university": "K",
+        "name": "Findelscollons",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": true,
+            "Sunday afternoon": true,
+            "Saturday night": true,
+            "Sunday morning": true,
+            "Saturday morning": true
+        },
+        "preferred_role": "Visualization",
+        "friend_registration": [],
+        "email": "D",
+        "programming_skills": {
+            "Python": 5
+        },
+        "hackathons_done": 1,
+        "objective": "Ud",
+        "introduction": "Kddk"
     },
     {
         "age": 19,

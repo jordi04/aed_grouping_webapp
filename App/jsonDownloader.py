@@ -29,3 +29,4 @@ with open("datathon_participants.json", "w") as file:
     json.dump(participants_data, file, indent=4)
 
 print("Firestore data downloaded to JSON file successfully!")
+

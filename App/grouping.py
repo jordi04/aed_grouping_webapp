@@ -53,6 +53,8 @@ def load_participants(path: str) -> List[Participant]:
 data_path = "datathon_participants.json"
 participants = load_participants(data_path)
 
+
+
 df = pd.DataFrame(participants)
 df = df.drop(
     columns=[

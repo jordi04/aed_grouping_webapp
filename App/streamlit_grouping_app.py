@@ -163,12 +163,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Cercador a la part superior amb marge superior
-st.markdown('<div style="margin-top:50px;"></div>', unsafe_allow_html=True)
-query_input = st.text_input("Cerca per UID o Nom del Participant:", 
-                            placeholder="Exemple: John Doe o 123e4567-e89b-12d3-a456-426614174000",
-                            key="participant_search_input")
-
 # Títol centrat
 st.markdown("<h1 class='main-title'>Agrupem els participants</h1>", unsafe_allow_html=True)
 
@@ -226,51 +220,3 @@ if st.button("Generar grups"):
         st.text(result.stderr)
 else:
     st.markdown("<p class='footer-text'>Prem el botó superior per generar els grups automàticament.</p>", unsafe_allow_html=True)
-
-@st.cache_data
-def load_data():
-    try:
-        df = pd.read_csv("output_groups.csv")
-        with open("datathon_participants.json", "r") as f:
-            json_data = json.load(f)
-        return df, json_data
-    except FileNotFoundError:
-        return None, None
-
-df, json_data = load_data()
-
-if query_input and df is not None and json_data is not None:
-    matching_participants = []
-    for participant in json_data:
-        if (participant.get("id") == query_input or 
-            query_input.lower() in participant.get("name", "").lower()):
-            matching_participants.append(participant)
-
-    if matching_participants:
-        st.subheader(f"S'han trobat {len(matching_participants)} participants:")
-        all_data_df = pd.DataFrame(matching_participants)
-        column_order = [
-            'name', 'id', 'age', 'preferred_team_size', 'experience_level',
-            'preferred_role', 'hackathons_done', 'year_of_study', 'objective',
-            'languages', 'dietary_restrictions', 'friend_registration',
-            'availability_saturday_morning', 'availability_saturday_afternoon',
-            'availability_saturday_night', 'availability_sunday_morning',
-            'availability_sunday_afternoon'
-        ]
-        existing_columns = [col for col in column_order if col in all_data_df.columns]
-        all_data_df = all_data_df[existing_columns]
-        st.dataframe(all_data_df)
-
-        for participant in matching_participants:
-            participant_id = participant.get("id")
-            curr_participant_data = df[df['id'] == participant_id]
-            
-            if not curr_participant_data.empty:
-                group_id = curr_participant_data['group_id'].iloc[0]
-                group_members = df[df['group_id'] == group_id]
-                
-                st.write(f"#### Membres del grup del participant {participant.get('name')} (Grup ID: {group_id})")
-                st.table(group_members[['name', 'id']])
-                st.markdown("---")
-    else:
-        st.error("No s'ha trobat cap participant amb aquesta informació.")
