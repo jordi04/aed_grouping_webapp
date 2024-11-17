@@ -2,6 +2,8 @@ import streamlit as st
 import subprocess
 import pandas as pd
 import time
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 # Configuració de la pàgina
 st.set_page_config(page_title="Dynamic Grouping", layout="wide")
@@ -15,14 +17,26 @@ def add_custom_styles():
         .stApp {
             background-color: #ffffff;
             font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for all content */
+        .block-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Contenidor dels logos */
         .logos-container {
             position: fixed;
-            top: 50px; /* Ajustem la distància des de la part superior */
-            left: 0;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
+            max-width: 1200px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,7 +60,7 @@ def add_custom_styles():
             font-size: 3em;
             font-weight: bold;
             color: #2e2e2e;
-            margin-top: 150px; /* Afegim espai respecte als logos */
+            margin-top: 50px; /* Reduït l'espai respecte al botó del menú de cerca */
             margin-bottom: 10px;
         }
 
@@ -58,46 +72,44 @@ def add_custom_styles():
             margin-bottom: 30px;
         }
 
-        /* Botó personalitzat */
+         /* Botó personalitzat */
         div.stButton > button {
             display: block;
-            margin: 20px auto; /* Centra el botó */
-            background-color: #3c948c; /* Verd elegant */
-            color: white; /* Text blanc */
-            font-size: 18px; /* Mida del text */
-            font-weight: bold; /* Text en negreta */
-            border-radius: 12px; /* Vores arrodonides */
-            padding: 10px 20px; /* Espai intern */
-            border: none; /* Sense vora */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombra */
-            cursor: pointer; /* Cursor de mà */
-            transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+            margin: 20px auto;
+            background-color: #3c948c;
+            color: white !important; /* Added !important */
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 12px;
+            padding: 10px 20px;
+            border: none;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         div.stButton > button:hover {
-            background-color: #2f7a6e; /* Verd més fosc */
-            transform: scale(1.05); /* Augment de mida */
-            color: white; /* Manté el text blanc */
+            background-color: #2f7a6e;
+            transform: scale(1.05);
+            color: white !important;
         }
 
-        /* Spinner verd i centrat */
         .custom-spinner-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center !important;
             flex-direction: column;
             margin-top: 20px;
         }
 
         .custom-spinner-text {
-            color: #3c948c; /* Text verd */
+            color: #3c948c;
             font-weight: bold;
             font-size: 18px;
             margin-top: 10px;
             text-align: center;
         }
 
-        /* Blocs de grups */
         .group-header {
             color: #ffffff;
             background-color: #3c948c;
@@ -111,10 +123,11 @@ def add_custom_styles():
             border: 2px solid #7ca5a8;
             border-radius: 10px;
             padding: 10px;
-            margin: 10px;
+            margin: 10px auto;
             background-color: #f9f9f9;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
+            max-width: 300px;
         }
 
         .participant-box h4 {
@@ -133,6 +146,18 @@ def add_custom_styles():
             font-size: 1em;
             color: #8c8c8c;
             margin-top: 30px;
+        }
+
+        /* Center all Streamlit elements */
+        .stMarkdown, .stButton, .stSpinner {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* Amaga la roda de càrrega per defecte */
+        .stSpinner > div > div {
+            display: none;
         }
 
         </style>
@@ -165,11 +190,40 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Ajustar el marge superior per assegurar que la barra de cerca sigui visible
+st.markdown("""
+<style>
+.block-container {
+    margin-top: 100px; /* Ajusta aquest valor segons sigui necessari */
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Inicialitzar Firebase
+if not firebase_admin._apps:
+    cred = credentials.Certificate("firebaseCred.json")
+    firebase_admin.initialize_app(cred)
+db = firestore.client()
+
 # Títol centrat
 st.markdown("<h1 class='main-title'>Agrupem els participants</h1>", unsafe_allow_html=True)
 
 # Subtítol centrat
 st.markdown("<p class='subtitle'>Generem els grups de manera automàtica</p>", unsafe_allow_html=True)
+
+# Funció per mostrar la informació del participant
+def mostra_participant(uid):
+    participant_ref = db.collection('participants').document(uid)
+    participant = participant_ref.get()
+    if participant.exists:
+        data = participant.to_dict()
+        st.write(f"### Informació del participant {data['name']}")
+        st.write(f"**ID:** {data['id']}")
+        st.write(f"**Email:** {data['email']}")
+        st.write(f"**Languages:** {', '.join(data['languages'])}")
+        st.write(f"**Objective:** {data['objective']}")
+    else:
+        st.error("Participant no trobat.")
 
 # Funció per mostrar els grups amb estils
 def mostra_grups(data):
@@ -189,14 +243,13 @@ def mostra_grups(data):
                     <div class="participant-box">
                         <h4>{row['name']}</h4>
                         <p><strong>ID:</strong> {row['id']}</p>
+                        <button onclick="window.location.href='#{row['id']}'">Més info</button>
                     </div>
                     """,
                     unsafe_allow_html=True,
                 )
-        
-        # Mostrar característiques comunes
-        common_features = group["group_common_features"].iloc[0]
-        st.markdown(f"<p><strong>Característiques comunes:</strong> {common_features}</p>", unsafe_allow_html=True)
+                if st.button("Més info", key=f"info-{row['id']}"):
+                    mostra_participant(row['id'])
 
 # Botó per executar l'script extern
 if st.button("Generar grups"):

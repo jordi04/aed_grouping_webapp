@@ -13,7 +13,7 @@ if not firebase_admin._apps:  # Check if any Firebase app is initialized
 
 # Initialize Firestore client
 db = firestore.client()
-
+st.logo("https://www.datathon.cat/_app/immutable/assets/accentLogo.ICfS56oN.png")
 # Reference to the collection of participants
 participants_ref = db.collection("participants")
 
@@ -120,7 +120,8 @@ elif st.session_state.page == 3:
     available_skills = [
         "Python", "C++", "JavaScript", "SQL", "TensorFlow", "PyTorch", "Docker", "HTML/CSS",
         "Data Analysis", "Natural Language Processing", "Java", "Go", "Rust", "Figma", "Flask",
-        "React", "React Native", "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning", "Android Development", "iOS Development", "UI/UX Design", "Git", 
+        "React", "React Native", "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning",
+        "Android Development", "iOS Development", "UI/UX Design", "Git", 
         "Blockchain", "Computer Vision", "Data Visualization"
     ]
     selected_skills = st.multiselect(
@@ -207,7 +208,7 @@ elif st.session_state.page == 5:
         preferred_team_size = st.slider(
             "Mida preferida de l'equip:", 
             min_value=1, 
-            max_value=5, 
+            max_value=4, 
             value=st.session_state.P.get("preferred_team_size", 4)
         )
         col1, col2 = st.columns(2)
@@ -280,8 +281,9 @@ elif st.session_state.page == 6:
             next_page()
 
 # Page 7: Resum i Confirmació
-elif st.session_state.page == 7:
-    st.header("Resum i Confirmació")
+elif st.session_state.page >= 7:
+    st.header("Secció 7: Enviar")
+    
 
     # Prepare the final data format
     participant_data = {
@@ -310,16 +312,21 @@ elif st.session_state.page == 7:
         "interest_in_challenges": st.session_state.P.get("interest_in_challenges", [])
     }
 
-    # Display the data
-    st.subheader("Resum Final")
-    st.write(participant_data)
 
     # Submit button
     submit = st.button("Enviar")
     if submit:
         try:
+            st.session_state.page += 1;
             # Save the data to Firestore
-            participants_ref.document().set(participant_data)
+            if st.session_state.page == 8:
+                participants_ref.document().set(participant_data)
+
             st.success("Les dades s'han enviat correctament!")
+            st.header("Gràcies per registrar-te!")
+            st.write("La teva inscripció s'ha completat amb èxit. Ens veiem a l'esdeveniment!")
+            st.write("El teu ID d'usuari és:", st.session_state.ID, " Guarda aquest ID per a futura referència, molt important.")
+            st.balloons()
         except Exception as e:
             st.error(f"Error en enviar les dades: {e}")
+

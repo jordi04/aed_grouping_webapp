@@ -2492,6 +2492,37 @@
         "introduction": "Hey everyone! I'm Aur\u00e9lie, a 18-year-old student, and I'm super pumped to be here at the datathon! I'm all about trying new things and learning as I go. I've got a passion for building things that can make a difference, whether it's automating processes or creating innovative solutions. I'm really excited to connect with like-minded folks and see what we can create together. In my free time, I love exploring different technologies and figuring out how to make them work together. I'm always up for a good challenge, so let's crush this datathon and make some unforgettable memories!"
     },
     {
+        "age": 18,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "29d93d46-d854-4aaa-b86a-2fecd02a284f",
+        "fun_fact": "",
+        "university": "",
+        "name": "",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
+    },
+    {
         "age": 21,
         "technical_project": "One project that really stood out to me was a Flutter app I built during my sophomore year. I created a mobile fitness tracker that tracked daily step count and calories burned. I was able to leverage my interest in health and productivtiy to create something that had real-world application. It was super fulfilling to see a project come together, from designing the UI to implementing the backend logic using MongoDB. Plus, it was awesome to be able to share it with friends and family and see them using it.",
         "experience_level": "Intermediate",
@@ -4335,6 +4366,37 @@
         "hackathons_done": 4,
         "objective": "Hey, I'm Astrid! My goal for this datathon is to soak up the energy and have an amazing time with fellow data enthusiasts. I'm looking forward to attending tons of events, workshops, and activities, meeting new people, and making friends. I'm not super competitive and I'd rather spend my time exploring new topics, learning from others, and sharing my own experiences. I want to return home with a smile on my face, feeling inspired and connected with the community. Let's have fun and learn together!",
         "introduction": "Hey there! I'm Astrid, a fourth-year student with a passion for exploring the latest tech trends. I love creating innovative solutions and combining art with tech to make it visually stunning. When I'm not coding away, you can find me jamming to indie music or attempting to tackle my latest art project. At this datathon, I'm excited to collaborate with like-minded individuals, attend engaging sessions, and soak up as much knowledge as possible. My aim is to leave with a newfound sense of inspiration and a stronger connection to the community - and maybe a few new friends along the way!"
+    },
+    {
+        "age": 89,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "d77b47b3-fd89-4054-abf3-0ce11f8afc05",
+        "fun_fact": "",
+        "university": "",
+        "name": "Leo",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
     },
     {
         "age": 20,
@@ -18180,6 +18242,37 @@
         "introduction": "Hey there! I'm Ava, a 19-year-old second-year student eager to dive into this datathon. As a beginner programmer, I'm looking forward to pushing my skills to the next level. My curiosity lies in areas where tech meets productivity and efficiency, and I'm excited to tackle real-world problems. With a strong passion for learning and competition, I'm setting my sights on winning this datathon. I'm ready to put in the work, be innovative, and show what I'm capable of. It's going to be a thrilling experience, and I'm stoked to take it on!"
     },
     {
+        "age": 18,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "40cddd6c-7f73-4dc7-9433-8987662e158e",
+        "fun_fact": "",
+        "university": "",
+        "name": "",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
+    },
+    {
         "age": 21,
         "technical_project": "One of my favorite projects was a VR storytelling app I built for a healthcare company. They wanted to educate patients about their symptoms and diagnosis in a more engaging way. I designed an interactive experience using VR, HTML, and CSS, where users could explore a 3D environment that mimicked a medical consultation. I loved how VR enabled me to bring a unique perspective to traditional patient education, making it both informative and enjoyable. Working on this project made me realize the potential of VR in healthcare and made me even more excited to explore its applications in other fields!",
         "experience_level": "Intermediate",
@@ -19170,6 +19263,37 @@
         "hackathons_done": 1,
         "objective": "For me, datathon is an opportunity to grow and learn from scratch. I'm not looking to win at all costs, but rather to challenge myself to grasp new concepts and techniques in programming. My objective is to walk away with tangible skills and knowledge that'll help me take my coding game to the next level. I'm eager to dive into real-world problems, collaborate with fellow participants, and absorb as much information as possible.",
         "introduction": "Hey there! I'm Rebecca, a 17-year-old student and coding newbie. I'm stoked to be here for the datathon, eager to level up my programming skills and learn from scratch. I'm a bit of a perfectionist, so I'm all about the process and seeing where it takes me. I've always been fascinated by the possibilities of AI and ML, and I'm excited to dive into real-world problems. When I'm not coding, you can find me exploring the world of art and music. Let's get creative and have some fun!"
+    },
+    {
+        "age": 18,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "4cfde5d4-49c4-40cd-9e8b-a9970bc654a0",
+        "fun_fact": "",
+        "university": "",
+        "name": "",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
     },
     {
         "age": 19,
@@ -33362,6 +33486,37 @@
         "introduction": "Hey, I'm Ava! I'm an 18-year-old student on a quest for learning and adventure. When I'm not attending classes, you can find me tinkering with tech, exploring new hobbies, or binge-watching my favorite shows. I'm stoked to be participating in this datathon, where I can geek out with like-minded folks, learn new skills, and make unforgettable memories. My goals are simple: have fun, network, and come away with fresh insights and ideas. Bring on the caffeine, coding, and camaraderie - it's gonna be an epic weekend!"
     },
     {
+        "age": 18,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "e6a3c45a-3f48-4f65-b3af-e0752860227d",
+        "fun_fact": "",
+        "university": "",
+        "name": "",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
+    },
+    {
         "age": 20,
         "technical_project": "One of my favorite projects was a React Native app I built to track daily water intake. As someone who values health, I knew the importance of staying hydrated. I combined my interest in programming and health to create an app that set reminders and displayed a tracker. It was amazing to see my app come to life, and receiving positive feedback from friends and family who used it made it all worth it. Working on this project allowed me to apply my programming skills in a way that benefits others, and that's what I love about building projects - making a positive impact!",
         "experience_level": "Intermediate",
@@ -37505,6 +37660,37 @@
         "introduction": "Hey! I'm Emily, a second-year student with a passion for trying new things. I love tinkering with tech, designing solutions, and finding creative ways to make a difference. When I'm not hit the books, you can find me jamming to tunes or sketching in my notebook. I'm all about that community vibe, and this datathon is the perfect place to do so. I'm looking forward to meeting fellow enthusiasts, learning from each other, and maybe, just maybe, crafting something life-changing together! Let's have some fun and get creative!"
     },
     {
+        "age": 21,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "4ac04ab4-01d1-4475-bbef-01ab6e1fc35b",
+        "fun_fact": "",
+        "university": "",
+        "name": "Jordi",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "Miron",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
+    },
+    {
         "age": 20,
         "technical_project": "One project that really stood out to me was creating a simple web scraper using Python and BeautifulSoup to scrape recipe data from a food website. I enjoyed working on it because it allowed me to combine my interest in culinary arts with my programming skills. I was able to set up a pipeline to extract and process the data, and then visualize it using Tableau. It was a small project, but it was a great way for me to practice my skills and see the output of my work come together. It was also super satisfying to be able to scrape a bunch of recipes and now have a dataset of my own!",
         "experience_level": "Intermediate",
@@ -40050,6 +40236,37 @@
         "hackathons_done": 3,
         "objective": "Hey there! I'm Alejandra, and I'm excited to participate in this datathon! My objective is to make the most of this amazing experience and create lasting connections with fellow participants. I'm all about embracing the social side of things and having a blast while learning and growing. I'm looking forward to engaging with fellow data enthusiasts, attending workshops, and contributing to group projects. My goal is to come out of this event with new friendships, memories, and a sense of fulfillment. So, bring on the fun, collaborations, and adventures!",
         "introduction": "Hey there! I'm Alejandra, a 20-year-old student looking to kickstart an exciting datathon experience! I'm all about diving into the world of tech, exploring new frontiers, and having a blast with fellow enthusiasts. My background in programming and fascination with innovations like Robotic Process Automation leave me eager to learn from others and share my own insights. I'm thrilled to connect with like-minded individuals and be a part of something amazing. Bring on the energy, camaraderie, and adventure - I'm ready to take on the challenge and make the most of this incredible experience!"
+    },
+    {
+        "age": 18,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "b28653ab-9f0f-4f0e-85ea-edef8908a4b8",
+        "fun_fact": "",
+        "university": "",
+        "name": "",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {},
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
     },
     {
         "age": 19,
@@ -44103,6 +44320,39 @@
         "hackathons_done": 4,
         "objective": "As I sit down at my datathon workstation, I'm all about learning and leveling up my skills. My goal for the weekend is to dive deep into some new programming languages and tools, and come out the other side with some fresh techniques to add to my toolkit. I'm eager to tackle some challenging projects and work alongside fellow coders to learn from their experiences and share my own. I'm hoping to leave the datathon with a stronger sense of foundation in my coding abilities and some awesome new projects to show off to my peers!",
         "introduction": "Hey there! I'm Ava Langston, a 20-year-old college student on a mission to supercharge my coding skills. I'm all about learning new tricks and leveling up my game, so the datathon is the perfect opportunity for me. I've dabbled in a few programming languages and have a passion for using tech to make things more efficient and secure. When I'm not buried in code, I love to help others communicate effectively. I'm excited to meet fellow coders and swap stories of troubleshooting and innovation."
+    },
+    {
+        "age": 34,
+        "technical_project": "",
+        "experience_level": "Advanced",
+        "dietary_restrictions": "None",
+        "shirt_size": "XL",
+        "interests": [],
+        "preferred_languages": [],
+        "future_excitement": "",
+        "interest_in_challenges": [],
+        "preferred_team_size": 4,
+        "id": "3a270eb7-2f20-489c-a691-cc5a27da3bdb",
+        "fun_fact": "",
+        "university": "IOP",
+        "name": "Jordi11",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Analysis",
+        "friend_registration": [],
+        "email": "adf",
+        "programming_skills": {
+            "C++": 8
+        },
+        "objective": "",
+        "hackathons_done": 0,
+        "introduction": ""
     },
     {
         "age": 20,
@@ -48239,6 +48489,46 @@
         "hackathons_done": 1,
         "objective": "Hi! As Rafael, I'm all about the win. My objective is to put everything I've got into winning this datathon. I've participated in one hackathon before, and I learned a lot from it. Now, I'm itching to take my skills to the next level and come out on top. I'm gonna focus on solving the challenges, learning new technologies, and giving my best to every problem that comes my way. Bring it on!",
         "introduction": "Hey, I'm Rafael! I'm a 19-year-old second-year student with a passion for coding and solving real-world problems. I've got some experience in programming, and my goal for this datathon is to win! I'm all about leveling up my skills and learning from the best. I enjoy tinkering with new tech and innovative ideas, and I'm excited to see what kind of challenges you've got in store for us. Let's crush it and take home the top spot!"
+    },
+    {
+        "age": 18,
+        "technical_project": "",
+        "experience_level": "Beginner",
+        "dietary_restrictions": "None",
+        "shirt_size": "S",
+        "interests": [
+            "Web"
+        ],
+        "preferred_team_size": 4,
+        "future_excitement": "",
+        "interest_in_challenges": [
+            "AED Challenge"
+        ],
+        "preferred_languages": [
+            "Catalan"
+        ],
+        "id": "25c17578-3c78-44ae-af44-c34eb08103d6",
+        "fun_fact": "",
+        "university": "",
+        "name": "",
+        "year_of_study": "1st year",
+        "availability": {
+            "Saturday afternoon": false,
+            "Sunday afternoon": false,
+            "Saturday night": false,
+            "Sunday morning": false,
+            "Saturday morning": false
+        },
+        "preferred_role": "Development",
+        "friend_registration": [],
+        "email": "",
+        "programming_skills": {
+            "PyTorch": 6,
+            "C++": 2
+        },
+        "hackathons_done": 2,
+        "objective": "",
+        "introduction": ""
     },
     {
         "age": 18,

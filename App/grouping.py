@@ -44,11 +44,8 @@ def load_participants(path: str) -> List[Participant]:
 
     return [Participant(**participant) for participant in json.load(open(path))]
 
-
 # Load data
 # Cridem que s'executi jsonDownloader.py per obtenir el fitxer datathon_participants.json
-
-
 
 data_path = "datathon_participants.json"
 participants = load_participants(data_path)
