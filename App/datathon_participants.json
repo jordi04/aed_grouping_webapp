@@ -48543,48 +48543,5 @@
             "Restb.ai Challenge",
             "AED Challenge"
         ]
-    },
-    {
-        "id": "39a5d414-a0fd-43e1-abd0-7ab19557ad9c",
-        "name": "Pol Mir\u00f3n",
-        "email": "traiganleunafaldaalani\u00f1a@gmail.com",
-        "age": 69,
-        "year_of_study": "4th year",
-        "shirt_size": "S",
-        "university": "Universitat Important de la ciutat comtal",
-        "dietary_restrictions": "None",
-        "interests": [
-            "Gaming"
-        ],
-        "preferred_role": "Design",
-        "experience_level": "Advanced",
-        "hackathons_done": 404,
-        "objective": "Mirar",
-        "introduction": "Home caucasic cerca parella per passar una bona estona",
-        "technical_project": "Follar-me a tamare",
-        "future_excitement": "Follar-me a la teva filla",
-        "fun_fact": "PL1M",
-        "preferred_languages": [
-            "Italian"
-        ],
-        "friend_registration": [],
-        "preferred_team_size": 4,
-        "availability": {
-            "Saturday morning": true,
-            "Saturday afternoon": true,
-            "Saturday night": true,
-            "Sunday morning": true,
-            "Sunday afternoon": true
-        },
-        "programming_skills": {
-            "Data Visualization": 7,
-            "Flask": 6,
-            "React": 6,
-            "MongoDB": 7
-        },
-        "interest_in_challenges": [
-            "Restb.ai Challenge",
-            "AED Challenge"
-        ]
     }
 ]
