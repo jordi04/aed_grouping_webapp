@@ -201,6 +201,14 @@ def mostra_grups(data):
 # Botó per executar l'script extern
 if st.button("Generar Grups"):
     # Mostrem un spinner verd centrat
+    with st.spinner("Recol·lectant les dades..."):
+        # Executar l'script Python extern
+        script_path = 'jsonDownloader.py'  # Ruta al fitxer grouping.py
+        try:
+            result = subprocess.run(["python3", script_path], capture_output=True, text=True)
+        except FileNotFoundError:
+            result = subprocess.run(["python", script_path], capture_output=True, text=True)
+
     with st.spinner("Generant els grups..."):
         # Executar l'script Python extern
         script_path = 'grouping.py'  # Ruta al fitxer grouping.py

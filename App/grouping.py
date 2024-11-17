@@ -7,7 +7,6 @@ import uuid
 from dataclasses import dataclass
 from typing import Dict, List, Literal
 
-
 @dataclass
 class Participant:
     id: uuid.UUID
@@ -47,6 +46,10 @@ def load_participants(path: str) -> List[Participant]:
 
 
 # Load data
+# Cridem que s'executi jsonDownloader.py per obtenir el fitxer datathon_participants.json
+
+
+
 data_path = "datathon_participants.json"
 participants = load_participants(data_path)
 
@@ -213,12 +216,18 @@ programming_languages = [
     'TensorFlow', 'PyTorch', 'Docker', 'AWS/Azure/GCP', 'Java', 'Go', 'Rust', 'Figma', 'Flask', 'React Native', 'PostgreSQL', 'Android Development', 'iOS Development', 'UI/UX', 'Git'
 ]
 
-languages = ['Catalan', 'English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish']
+all_columns = [
+    'Catalan', 'English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish', 'Saturday morning', 'Saturday afternoon', 'Saturday night', 'Sunday morning', 'Sunday afternoon',
+    'hackathons_done', 'experience_level', 'preferred_role', 'Python', 'React', 'JavaScript', 'TypeScript', 'Docker', 'SQL', 'TensorFlow', 'PyTorch', 'Machine Learning', 'React Native', 'C++', 'year_of_study',
+    'Gaming', 'Health', 'E-commerce/Retail', 'Education', 'Enterprise', 'Social Good', 'Machine Learning/AI', 'Communication', 'Cybersecurity', 'DevOps', 'Music/Art', 'Quantum', 'Robotic Process Automation', 'Voice skills', 'Web'
+]
+
+
 
 # Funció per calcular característiques comunes d'un grup (només positives)
 def calculate_common_features(group_members, df):
     common_features = []
-    for column in languages + programming_languages + relaxed_columns + medium_columns + strict_columns:
+    for column in all_columns:
         if column in df.columns:
             values = df.loc[group_members, column]
             if all(values > 0):  # Comprovar si tots els valors són > 0
