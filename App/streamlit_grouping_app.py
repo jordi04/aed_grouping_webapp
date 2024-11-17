@@ -2,11 +2,7 @@ import streamlit as st
 import subprocess
 import pandas as pd
 import time
-import firebase_admin
-from firebase_admin import credentials, firestore
-
-# Configuració de la pàgina
-st.set_page_config(page_title="Dynamic Grouping", layout="wide")
+import json
 
 # Estils CSS personalitzats per adaptar l'estil de la pàgina
 def add_custom_styles():
@@ -17,26 +13,14 @@ def add_custom_styles():
         .stApp {
             background-color: #ffffff;
             font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Container for all content */
-        .block-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         /* Contenidor dels logos */
         .logos-container {
             position: fixed;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 50px; /* Ajustem la distància des de la part superior */
+            left: 0;
             width: 100%;
-            max-width: 1200px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +44,7 @@ def add_custom_styles():
             font-size: 3em;
             font-weight: bold;
             color: #2e2e2e;
-            margin-top: 50px; /* Reduït l'espai respecte al botó del menú de cerca */
+            margin-top: 70px; /* Afegim espai respecte als logos */
             margin-bottom: 10px;
         }
 
@@ -72,44 +56,46 @@ def add_custom_styles():
             margin-bottom: 30px;
         }
 
-         /* Botó personalitzat */
+        /* Botó personalitzat */
         div.stButton > button {
             display: block;
-            margin: 20px auto;
-            background-color: #3c948c;
-            color: white !important; /* Added !important */
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 12px;
-            padding: 10px 20px;
-            border: none;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 20px auto; /* Centra el botó */
+            background-color: #3c948c; /* Verd elegant */
+            color: white; /* Text blanc */
+            font-size: 18px; /* Mida del text */
+            font-weight: bold; /* Text en negreta */
+            border-radius: 12px; /* Vores arrodonides */
+            padding: 10px 20px; /* Espai intern */
+            border: none; /* Sense vora */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombra */
+            cursor: pointer; /* Cursor de mà */
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
         }
 
         div.stButton > button:hover {
-            background-color: #2f7a6e;
-            transform: scale(1.05);
-            color: white !important;
+            background-color: #2f7a6e; /* Verd més fosc */
+            transform: scale(1.05); /* Augment de mida */
+            color: white; /* Manté el text blanc */
         }
 
+        /* Spinner verd i centrat */
         .custom-spinner-container {
             display: flex;
             justify-content: center;
-            align-items: center !important;
+            align-items: center;
             flex-direction: column;
             margin-top: 20px;
         }
 
         .custom-spinner-text {
-            color: #3c948c;
+            color: #3c948c; /* Text verd */
             font-weight: bold;
             font-size: 18px;
             margin-top: 10px;
             text-align: center;
         }
 
+        /* Blocs de grups */
         .group-header {
             color: #ffffff;
             background-color: #3c948c;
@@ -123,11 +109,10 @@ def add_custom_styles():
             border: 2px solid #7ca5a8;
             border-radius: 10px;
             padding: 10px;
-            margin: 10px auto;
+            margin: 10px;
             background-color: #f9f9f9;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 300px;
         }
 
         .participant-box h4 {
@@ -146,18 +131,6 @@ def add_custom_styles():
             font-size: 1em;
             color: #8c8c8c;
             margin-top: 30px;
-        }
-
-        /* Center all Streamlit elements */
-        .stMarkdown, .stButton, .stSpinner {
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        /* Amaga la roda de càrrega per defecte */
-        .stSpinner > div > div {
-            display: none;
         }
 
         </style>
@@ -190,20 +163,11 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Ajustar el marge superior per assegurar que la barra de cerca sigui visible
-st.markdown("""
-<style>
-.block-container {
-    margin-top: 100px; /* Ajusta aquest valor segons sigui necessari */
-}
-</style>
-""", unsafe_allow_html=True)
-
-# Inicialitzar Firebase
-if not firebase_admin._apps:
-    cred = credentials.Certificate("firebaseCred.json")
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
+# Cercador a la part superior amb marge superior
+st.markdown('<div style="margin-top:50px;"></div>', unsafe_allow_html=True)
+query_input = st.text_input("Cerca per UID o Nom del Participant:", 
+                            placeholder="Exemple: John Doe o 123e4567-e89b-12d3-a456-426614174000",
+                            key="participant_search_input")
 
 # Títol centrat
 st.markdown("<h1 class='main-title'>Agrupem els participants</h1>", unsafe_allow_html=True)
@@ -211,30 +175,14 @@ st.markdown("<h1 class='main-title'>Agrupem els participants</h1>", unsafe_allow
 # Subtítol centrat
 st.markdown("<p class='subtitle'>Generem els grups de manera automàtica</p>", unsafe_allow_html=True)
 
-# Funció per mostrar la informació del participant
-def mostra_participant(uid):
-    participant_ref = db.collection('participants').document(uid)
-    participant = participant_ref.get()
-    if participant.exists:
-        data = participant.to_dict()
-        st.write(f"### Informació del participant {data['name']}")
-        st.write(f"**ID:** {data['id']}")
-        st.write(f"**Email:** {data['email']}")
-        st.write(f"**Languages:** {', '.join(data['languages'])}")
-        st.write(f"**Objective:** {data['objective']}")
-    else:
-        st.error("Participant no trobat.")
-
 # Funció per mostrar els grups amb estils
 def mostra_grups(data):
     st.write("### Grups Generats")
     grouped = data.groupby("group_id")
 
-    # Mostrar els grups
     for group_id, group in grouped:
         st.markdown(f"<div class='group-header'>Grup {group_id}</div>", unsafe_allow_html=True)
 
-        # Crear una fila amb columnes adaptatives per als participants
         cols = st.columns(len(group))
         for i, (_, row) in enumerate(group.iterrows()):
             with cols[i]:
@@ -243,41 +191,33 @@ def mostra_grups(data):
                     <div class="participant-box">
                         <h4>{row['name']}</h4>
                         <p><strong>ID:</strong> {row['id']}</p>
-                        <button onclick="window.location.href='#{row['id']}'">Més info</button>
                     </div>
                     """,
                     unsafe_allow_html=True,
                 )
-                if st.button("Més info", key=f"info-{row['id']}"):
-                    mostra_participant(row['id'])
+        common_features = group["group_common_features"].iloc[0]
+        st.markdown(f"<p><strong>Característiques comunes:</strong> {common_features}</p>", unsafe_allow_html=True)
 
 # Botó per executar l'script extern
 if st.button("Generar grups"):
-    # Mostrem un spinner verd centrat
     with st.spinner("Recol·lectant les dades..."):
-        # Executar l'script Python extern
-        script_path = 'jsonDownloader.py'  # Ruta al fitxer grouping.py
+        script_path = 'jsonDownloader.py'
         try:
             result = subprocess.run(["python3", script_path], capture_output=True, text=True)
         except FileNotFoundError:
             result = subprocess.run(["python", script_path], capture_output=True, text=True)
 
     with st.spinner("Generant els grups..."):
-        # Executar l'script Python extern
-        script_path = 'grouping.py'  # Ruta al fitxer grouping.py
+        script_path = 'grouping.py'
         try:
             result = subprocess.run(["python3", script_path], capture_output=True, text=True)
         except FileNotFoundError:
             result = subprocess.run(["python", script_path], capture_output=True, text=True)
 
-    # Comprovar si l'execució ha estat exitosa
     if result.returncode == 0:
-        # Eliminat el missatge de confirmació
         try:
-            output_csv_path = "output_groups.csv"  # Fitxer generat pel teu script
+            output_csv_path = "output_groups.csv"
             data = pd.read_csv(output_csv_path)
-
-            # Mostrar els grups de forma visual
             mostra_grups(data)
         except FileNotFoundError:
             st.error("El fitxer CSV no s'ha trobat. Assegura't que 'grouping.py' crea 'output_groups.csv'.")
@@ -285,13 +225,53 @@ if st.button("Generar grups"):
         st.error("Error en executar l'script.")
         st.text(result.stderr)
 else:
-    # Text explicatiu centrat a la part inferior
     st.markdown("<p class='footer-text'>Prem el botó superior per generar els grups automàticament.</p>", unsafe_allow_html=True)
 
-# Peu de pàgina amb text centrat
-st.markdown(
-    """
-    <p class='footer-text'>Desenvolupat per en Sergi Adrover, en Pol Mir, en Jaume Mora i en Jordi Roca - Datathon 2024</p>
-    """,
-    unsafe_allow_html=True,
-)
+@st.cache_data
+def load_data():
+    try:
+        df = pd.read_csv("output_groups.csv")
+        with open("datathon_participants.json", "r") as f:
+            json_data = json.load(f)
+        return df, json_data
+    except FileNotFoundError:
+        st.error("No s'han trobat els fitxers necessaris.")
+        return None, None
+
+df, json_data = load_data()
+
+if query_input and df is not None and json_data is not None:
+    matching_participants = []
+    for participant in json_data:
+        if (participant.get("id") == query_input or 
+            query_input.lower() in participant.get("name", "").lower()):
+            matching_participants.append(participant)
+
+    if matching_participants:
+        st.subheader(f"S'han trobat {len(matching_participants)} participants:")
+        all_data_df = pd.DataFrame(matching_participants)
+        column_order = [
+            'name', 'id', 'age', 'preferred_team_size', 'experience_level',
+            'preferred_role', 'hackathons_done', 'year_of_study', 'objective',
+            'languages', 'dietary_restrictions', 'friend_registration',
+            'availability_saturday_morning', 'availability_saturday_afternoon',
+            'availability_saturday_night', 'availability_sunday_morning',
+            'availability_sunday_afternoon'
+        ]
+        existing_columns = [col for col in column_order if col in all_data_df.columns]
+        all_data_df = all_data_df[existing_columns]
+        st.dataframe(all_data_df)
+
+        for participant in matching_participants:
+            participant_id = participant.get("id")
+            curr_participant_data = df[df['id'] == participant_id]
+            
+            if not curr_participant_data.empty:
+                group_id = curr_participant_data['group_id'].iloc[0]
+                group_members = df[df['group_id'] == group_id]
+                
+                st.write(f"#### Membres del grup del participant {participant.get('name')} (Grup ID: {group_id})")
+                st.table(group_members[['name', 'id']])
+                st.markdown("---")
+    else:
+        st.error("No s'ha trobat cap participant amb aquesta informació.")

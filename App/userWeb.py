@@ -45,31 +45,42 @@ def add_custom_styles():
             margin-bottom: 10px;
         }
 
-        /* Botó personalitzat */
+        /* Estil per als botons */
         div.stButton > button {
             display: block;
             margin: 20px auto;
-            background-color: white;
-            color: #3c948c;
+            background-color: transparent;
+            color: #3c948c !important;
             font-size: 18px;
             font-weight: bold;
             border-radius: 12px;
             padding: 10px 20px;
             border: 2px solid #3c948c;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
         }
 
         div.stButton > button:hover {
-            background-color: #3c948c; /* Verd turquesa */
-            color: white; /* Text blanc */
-            transform: scale(1.05); /* Augment de mida */
+            background-color: #e6f2ef;
+            color: #3c948c !important;
+            border: 2px solid #3c948c;
+        }
+
+        /* Posicionament específic per al botó "Next" */
+        div.stButton.next-button {
+            float: right;
+            margin-right: 0;
+        }
+
+        /* Posicionament específic per al botó "Previous" */
+        div.stButton.prev-button {
+            float: left;
+            margin-left: 0;
         }
 
         /* Camps d'entrada */
         input[type="text"], input[type="number"], textarea, select {
-            border: 2px solid #d9d9d9; /* Color normal */
+            border: 2px solid #d9d9d9;
             border-radius: 8px;
             padding: 10px;
             font-size: 14px;
@@ -80,23 +91,22 @@ def add_custom_styles():
 
         /* Hover en camps d'entrada */
         input[type="text"]:hover, input[type="number"]:hover, textarea:hover, select:hover {
-            border-color: #3c948c; /* Verd turquesa */
-            box-shadow: 0 0 5px rgba(60, 148, 140, 0.5); /* Resplendor verd turquesa */
+            border-color: #3c948c !important;
+            box-shadow: 0 0 5px rgba(60, 148, 140, 0.5);
         }
 
         /* Focus (quan hi ha cursor dins del camp) */
         input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
             outline: none;
-            border-color: #3c948c; /* Turquesa per defecte */
+            border-color: #3c948c;
             box-shadow: 0 0 5px rgba(60, 148, 140, 0.5);
         }
 
-        /* Camps amb errors (eliminem el vermell per defecte) */
-        input[type="text"].stTextInput.invalid,
-        input[type="number"].stNumberInput.invalid,
-        textarea.stTextArea.invalid {
-            border-color: #3c948c; /* Turquesa */
-            box-shadow: 0 0 5px rgba(60, 148, 140, 0.5);
+        /* Camps amb errors */
+        .stAlert {
+            background-color: #e6f2ef;
+            color: #3c948c;
+            border-color: #3c948c;
         }
 
         /* Placeholder en camps d'entrada */
@@ -114,11 +124,18 @@ def add_custom_styles():
         }
 
         .custom-spinner-text {
-            color: #3c948c; /* Text turquesa */
+            color: #3c948c;
             font-weight: bold;
             font-size: 18px;
             margin-top: 10px;
             text-align: center;
+        }
+
+        /* Clear fix for button columns */
+        .button-container::after {
+            content: "";
+            display: table;
+            clear: both;
         }
         </style>
         """,
@@ -140,7 +157,7 @@ st.markdown(
 )
 
 # Títol centrat
-st.markdown("<h1 class='main-title'>Omple el formulari per a registrar-te</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-title'>Fill out the form to register</h1>", unsafe_allow_html=True)
 
 
 # Initialize Firebase only if it hasn't been initialized already
@@ -316,7 +333,7 @@ elif st.session_state.page == 4:
             next_ = st.form_submit_button("Next")
 
         if next_:
-            if not hackathons_done or not interests or not preferred_role or not objective:
+            if not interests or not preferred_role or not objective:
                 st.error(requiredString)  # Error message if any field is missing
             else:
                 st.session_state.DA = {
@@ -457,10 +474,10 @@ elif st.session_state.page >= 7:
         "experience_level": st.session_state.DP.get("experience_level", ""),
         "hackathons_done": st.session_state.DA.get("hackathons_done", 0),
         "objective": st.session_state.DA.get("objective", ""),
-        "introduction": st.session_state.DA.get("introduction", ""),
-        "technical_project": st.session_state.DA.get("technical_project", ""),
-        "future_excitement": st.session_state.DA.get("future_excitement", ""),
-        "fun_fact": st.session_state.DA.get("fun_fact", ""),
+        "introduction": st.session_state.Disp.get("introduction", ""),
+        "technical_project": st.session_state.Disp.get("technical_project", ""),
+        "future_excitement": st.session_state.Disp.get("future_excitement", ""),
+        "fun_fact": st.session_state.Disp.get("fun_fact", ""),
         "preferred_languages": st.session_state.P.get("preferred_languages", []),
         "friend_registration": st.session_state.P.get("friend_registration", []),
         "preferred_team_size": st.session_state.P.get("preferred_team_size", 0),

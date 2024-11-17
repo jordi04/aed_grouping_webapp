@@ -44,8 +44,11 @@ def load_participants(path: str) -> List[Participant]:
 
     return [Participant(**participant) for participant in json.load(open(path))]
 
+
 # Load data
 # Cridem que s'executi jsonDownloader.py per obtenir el fitxer datathon_participants.json
+
+
 
 data_path = "datathon_participants.json"
 participants = load_participants(data_path)
@@ -215,7 +218,7 @@ programming_languages = [
 all_columns = [
     'Catalan', 'English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish', 'Saturday morning', 'Saturday afternoon', 'Saturday night', 'Sunday morning', 'Sunday afternoon',
     'hackathons_done', 'experience_level', 'preferred_role', 'Python', 'React', 'JavaScript', 'TypeScript', 'Docker', 'SQL', 'TensorFlow', 'PyTorch', 'Machine Learning', 'React Native', 'C++', 'year_of_study',
-    'Gaming', 'Health', 'E-commerce/Retail', 'Education', 'Enterprise', 'Social Good', 'Machine Learning/AI', 'Communication', 'Cybersecurity', 'DevOps', 'Music/Art', 'Quantum', 'Robotic Process Automation', 'Voice skills', 'Web'
+    'Gaming', 'Health', 'E-commerce/Retail', 'Education', 'Enterprise', 'Social Good', 'Machine Learning/AI', 'Communication', 'Cybersecurity', 'Music/Art', 'Quantum', 'Robotic Process Automation', 'Voice skills', 'Web'
 ]
 
 
