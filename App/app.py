@@ -120,8 +120,7 @@ elif st.session_state.page == 3:
     available_skills = [
         "Python", "C++", "JavaScript", "SQL", "TensorFlow", "PyTorch", "Docker", "HTML/CSS",
         "Data Analysis", "Natural Language Processing", "Java", "Go", "Rust", "Figma", "Flask",
-        "React", "React Native", "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning",
-        "DevOps", "Android Development", "iOS Development", "UI/UX Design", "Git", 
+        "React", "React Native", "PostgreSQL", "AWS/Azure/GCP", "IoT", "Machine Learning", "Android Development", "iOS Development", "UI/UX Design", "Git", 
         "Blockchain", "Computer Vision", "Data Visualization"
     ]
     selected_skills = st.multiselect(

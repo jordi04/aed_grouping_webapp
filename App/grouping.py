@@ -119,7 +119,6 @@ skill_normalization = {
     "Aws": "AWS/Azure/GCP", "AWS": "AWS/Azure/GCP", "AWS/Azure/GCP": "AWS/Azure/GCP",
     "IoT": "IoT", "iot": "IoT",
     "Machine Learning": "Machine Learning", "ML": "Machine Learning",
-    "DevOps": "DevOps",
     "android": "Android Development", "Android Development": "Android Development",
     "iOS Development ": "iOS Development", "ios": "iOS Development", "iOS Development": "iOS Development",
     "UI/UX Design": "UI/UX", "UI/UX": "UI/UX", "UI/UX Design ": "UI/UX",
