@@ -207,7 +207,7 @@ medium_columns = [
 
 relaxed_columns = [
     'Gaming', 'Health', 'E-commerce/Retail', 'Education', 'Enterprise', 'Social Good',
-    'Machine Learning/AI', 'Communication', 'Cybersecurity', 'DevOps', 'Music/Art', 'Quantum',
+    'Machine Learning/AI', 'Communication', 'Cybersecurity', 'Music/Art', 'Quantum',
     'Robotic Process Automation', 'Voice skills', 'Web', 'age'
 ]
 

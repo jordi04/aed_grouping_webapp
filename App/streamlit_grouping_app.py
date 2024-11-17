@@ -199,7 +199,7 @@ def mostra_grups(data):
         st.markdown(f"<p><strong>Característiques comunes:</strong> {common_features}</p>", unsafe_allow_html=True)
 
 # Botó per executar l'script extern
-if st.button("Generar Grups"):
+if st.button("Generar grups"):
     # Mostrem un spinner verd centrat
     with st.spinner("Recol·lectant les dades..."):
         # Executar l'script Python extern
