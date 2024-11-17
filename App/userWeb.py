@@ -491,7 +491,10 @@ elif st.session_state.page >= 7:
     if submit:
         try:
             # Save the data to Firestore
-            participants_ref.document().set(participant_data)
+            print("outside")
+            if (st.session_state.page == 7):
+                participants_ref.document().set(participant_data)
+                print("inside")
 
             st.success("Data has been successfully submitted!")
             st.header("Thank you for registering!")

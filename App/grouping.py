@@ -359,5 +359,6 @@ df = regroup_solo_participants(df)
 df = df.sort_values(by='group_id')
 columns_order = ['group_id'] + [col for col in df.columns if col != 'group_id']
 df = df[columns_order]
+
 df.to_csv('output_groups.csv', index=False)
 print("Participants grouped and results saved to 'output_groups.csv'.")

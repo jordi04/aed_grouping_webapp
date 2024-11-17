@@ -235,7 +235,6 @@ def load_data():
             json_data = json.load(f)
         return df, json_data
     except FileNotFoundError:
-        st.error("No s'han trobat els fitxers necessaris.")
         return None, None
 
 df, json_data = load_data()
