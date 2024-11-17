@@ -203,6 +203,7 @@ if st.button("Generar grups"):
 
     with st.spinner("Generant els grups..."):
         script_path = 'grouping.py'
+        script_path_down = 'jsonDownloader.py'
         try:
             result = subprocess.run(["python3", script_path], capture_output=True, text=True)
         except FileNotFoundError:
