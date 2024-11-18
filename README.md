@@ -48,7 +48,7 @@ L'aplicació **AED GROUPING WEBAPP** és una eina interactiva creada per a compe
 ## 🔧 **Com Executar**
 1. Cloneu el repositori:
    ```bash
-   git clone https://github.com/el-vostre-usuari/fme-datathon-app.git
+   git clone https://github.com/jordi04/fme-datathon-app.git
    cd fme-datathon-app
    ```
 2. Installeu les dependències:
